@@ -21,6 +21,7 @@ import EventPage from "./modules/events/pages/EventPage";
 import { CardEdit } from "./modules/events/card/components/CardEdit/CardEdit";
 
 import "./App.css";
+import "./output.css";
 import EditEventPage from "./modules/events/pages/EditEventPage";
 import { EventAttendeesPage } from "./modules/events/pages/EventAttendeesPage/EventAttendeesPage";
 import { LoginPage } from "./modules/auth/pages/LoginPage/LoginPage";
