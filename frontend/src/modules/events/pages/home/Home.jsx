@@ -1,16 +1,22 @@
-import React, { useState } from "react";
-import { Events } from "../../components/Events/Events";
-import "./home.css";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { Box, CircularProgress } from "@mui/material";
+
 import Layout from "../../../landing/Layout";
-import { TopContainer } from "./TopContainer";
+
+import { useGeolocation } from "../../../shared/hooks/useGeolocation/useGeolocation";
 import { useGetEvents } from "../../hooks/useGetEvents";
+
 import FilterForm from "./FilterForm";
 import SearchBar from "./SearchBar";
+
 import { OurServicesList } from "./OurServicesList";
-import { Typography, Box, CircularProgress, Button } from "@mui/material";
-import { useGeolocation } from "../../../shared/hooks/useGeolocation/useGeolocation";
-import { useNavigate } from "react-router-dom";
+
+import { Events } from "../../components/Events/Events";
+
+import "./home.css";
+
 export function Home(props) {
   const [eventsList, setEventsList] = useState([]);
   const [filteredEvents, setFilteredEvents] = useState({});
@@ -32,7 +38,7 @@ export function Home(props) {
         if (data) {
           setEventsList(data);
         }
-      } catch {}
+      } catch { }
     })();
   }, [currentPosition, fetchEvents, filteredEvents]);
 
@@ -86,44 +92,34 @@ export function Home(props) {
     <>
       <Layout>
         <div className="joinContainer">
-        <div className="video-background">
-      <video autoPlay loop muted className="video">
-        <source src={require("./IconsSource/planning.mp4")} type="video/mp4" />
-        {/* Add additional source elements for different video formats */}
-      </video>
-      {/* Add other content on top of the video if needed */}
-      <div className="content">
-      <div className="joinHeader">
-            <Typography variant="h3" fontFamily="Quintessential" sx={{letterSpacing:" 0em;",
-    fontWeight: "600;",
-    fontSize: '4vw;',}}>
-              Discover Exciting Events
-            </Typography>
-            <Typography variant="h5" fontFamily="ui-monospace;" sx={{  fontSize: '2vw;', fontWeight:"900" ,mt: 2,}}>
-            Stay Up-to-Date with Nearby Events
-              </Typography>
-           
-          </div>
+          <div className="video-background">
+            <video autoPlay loop muted className="video">
+              <source src={require("./IconsSource/planning.mp4")} type="video/mp4" />
+              {/* Add additional source elements for different video formats */}
+            </video>
+            {/* Add other content on top of the video if needed */}
+            <div className="content">
+              <div className="joinHeader">
 
-          <Box
-            className="searchContainer"
-            sx={{
-              paddingLeft: "20px",
-              flexDirection: "column",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <SearchBar
-              handelSearch={handelSearch}
-              handleFilter={handleFilter}
-              events={eventsList}
-            />
+                <div className="h3 tracking-normal font-semibold text-[4vw] font-[Quintessential]">
+                  Discover Exciting Events
+                </div>
+                <div className="h5 font-[ui-monospace] text-[2vw] font-black mt-2">Stay Up-to-Date with Nearby Events</div>
 
-            <FilterForm onFilter={handleFilter} eventsList={eventsList} />
-          </Box>
-          </div>
+              </div>
+
+              <div
+                className="searchContainer pl-[20px] flex flex-col justify-center items-center"
+              >
+                <SearchBar
+                  handelSearch={handelSearch}
+                  handleFilter={handleFilter}
+                  events={eventsList}
+                />
+
+                <FilterForm onFilter={handleFilter} eventsList={eventsList} />
+              </div>
+            </div>
           </div>
           <div className="homeContainer">
             {!isLoading && (
@@ -142,7 +138,7 @@ export function Home(props) {
           </div>
         </div>
         <OurServicesList />
-        
+
       </Layout>
     </>
   );
