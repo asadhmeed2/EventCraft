@@ -116,8 +116,10 @@ export function Home(props) {
                   handleFilter={handleFilter}
                   events={eventsList}
                 />
+  <div className="mt-5">
 
                 <FilterForm onFilter={handleFilter} eventsList={eventsList} />
+  </div>
               </div>
             </div>
           </div>

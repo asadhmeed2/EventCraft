@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from "react";
 import {
   TextField,
-  Button,
-  IconButton,
-  Select,
+  
   MenuItem,
   Grid,
   Box,
-  InputLabel,
   FormControl,
 } from "@mui/material";
-import FilterIcon from "@mui/icons-material/FilterList";
+import { styled } from '@mui/system';
+
 import useExtractLocations from "./hooks/useExtractLocations";
 import useExtractCategories from "./hooks/useExtractCategories";
-import { styled } from '@mui/system';
+import { Select } from "../../../shared/forms/Select/Select";
+import { DateInput } from "../../../shared/forms/DateInput/DateInput";
 
 const StyledTextField = styled(TextField)({
   '& .MuiInputLabel-root': {
@@ -40,10 +39,6 @@ const FilterForm = ({ eventsList, onFilter }) => {
   const locations = useExtractLocations(eventsList);
   const categories = useExtractCategories(eventsList);
 
-  const handleFilterToggle = () => {
-    setIsOpen(!isOpen);
-  };
-
   const handleLocationChange = (event) => {
     const selectedLocation = event.target.value;
     setLocation(selectedLocation === "" ? "" : selectedLocation);
@@ -63,51 +58,46 @@ const FilterForm = ({ eventsList, onFilter }) => {
   };
 
   return (
-    <Grid container justifyContent={"center"} direction={"row"}>
-      {/* <Grid item height={"95px"}>
-        <IconButton onClick={handleFilterToggle}>
-          <FilterIcon />
-        </IconButton>
-      </Grid> */}
+    <div className="flex ">
+      
       {
-        <Grid item>
+        <div>
           <form>
-            <Box p={2}>
-              <FormControl variant="standard" sx={{ width: 150 }}>
+            <div className="p-2 flex">
+              <div className="w-[150px]" >
                 {/* <InputLabel id="demo-simple-select-label">Location</InputLabel> */}
-                <StyledTextField
-                  select
+                <Select
                   labelId="demo-simple-select-label"
                   value={location}
                   onChange={handleLocationChange}
                   label={"Location"}
                 >
-                  <MenuItem value="">All</MenuItem>
+                  <option value="">All</option>
                   {locations.map((location) => (
-                    <MenuItem key={location} value={location}>
+                    <option key={location} value={location}>
                       {location}
-                    </MenuItem>
+                    </option>
                   ))}
-                </StyledTextField>
-              </FormControl>
-              <FormControl variant="standard" sx={{ ml: 2, mr: 2, width: 150 }}>
+                </Select>
+              </div>
+              <div className="ml-2 mr-2 w-[150px]" sx={{ ml: 2, mr: 2, width: 150 }}>
                 {/* <InputLabel id="categoryLabel">Category</InputLabel> */}
-                <StyledTextField
-                  select
+                <Select
+                  
                   labelId="categoryLabel"
                   value={category}
                   onChange={handleCategoryChange}
                   label="Category"
                 >
-                  <MenuItem value="">All</MenuItem>
+                  <option value="">All</option>
                   {categories.map((category) => (
-                    <MenuItem key={category} value={category}>
+                    <option key={category} value={category}>
                       {category}
-                    </MenuItem>
+                    </option>
                   ))}
-                </StyledTextField>
-              </FormControl>
-              <StyledTextField
+                </Select>
+              </div>
+              {/* <StyledTextField
                 id="date"
                 label="Date"
                 type="date"
@@ -116,12 +106,17 @@ const FilterForm = ({ eventsList, onFilter }) => {
                 InputLabelProps={{
                   shrink: true,
                 }}
-              />
-            </Box>
+              /> */}
+              <DateInput id="date"
+                label="Date"
+                type="date"
+                value={date}
+                onChange={handleDateChange}/>
+            </div>
           </form>
-        </Grid>
+        </div>
       }
-    </Grid>
+    </div>
   );
 };
 
