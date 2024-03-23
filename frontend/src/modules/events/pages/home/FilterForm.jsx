@@ -54,7 +54,7 @@ const FilterForm = ({ eventsList, onFilter }) => {
   const handleDateChange = (event) => {
     const selectedDate = event.target.value;
     setDate(selectedDate);
-    onFilter({ location, category, date: selectedDate });
+    onFilter({ location, category, date: new Date(selectedDate).toDateString() });
   };
 
   return (
