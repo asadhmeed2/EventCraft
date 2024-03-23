@@ -1,9 +1,9 @@
 
 import React from 'react'
 
-import { ReactComponent as JoinEventIcon } from './IconsSource/joinEvent.svg';
-import { ReactComponent as EditEventIcon } from './IconsSource/editEvent.svg';
-import { ReactComponent as ManageEventIcon } from './IconsSource/manageEvents.svg';
+import { ReactComponent as JoinEventIcon } from '../../IconsSource/joinEvent.svg';
+import { ReactComponent as EditEventIcon } from '../../IconsSource/editEvent.svg';
+import { ReactComponent as ManageEventIcon } from '../../IconsSource/manageEvents.svg';
 export function OurService({ title, description }) {
     const HandelIcon = () => {
         if (title === 'Manage Events') {

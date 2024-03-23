@@ -12,7 +12,7 @@ import {
 
 import { useGetMyEvents } from "../../hooks/useGetMyEvents";
 import { useNavigate } from "react-router-dom";
-import SearchBar from "../home/SearchBar";
+import SearchBar from "../../../shared/forms/SearchBar";
 import CustomSnackbar from "../../../shared/components/CustomSnackbar/CustomSnackbar";
 
 export const WorkSpace = (props) => {

@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { EventAttendanceTable } from "../../components/EventAttendanceTable/EventAttendanceTable";
 import Layout from "../../../landing/Layout";
 import { Box, Button, Card } from "@mui/material";
-import SearchBar from "../home/SearchBar";
+import SearchBar from "../../../shared/forms/SearchBar";
 import { useNavigate } from "react-router-dom";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 

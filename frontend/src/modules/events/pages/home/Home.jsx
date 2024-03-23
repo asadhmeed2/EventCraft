@@ -8,14 +8,15 @@ import Layout from "../../../landing/Layout";
 import { useGeolocation } from "../../../shared/hooks/useGeolocation/useGeolocation";
 import { useGetEvents } from "../../hooks/useGetEvents";
 
-import FilterForm from "./FilterForm";
-import SearchBar from "./SearchBar";
+import FilterForm from "./components/FilterForm/FilterForm";
+import SearchBar from "../../../shared/forms/SearchBar/SearchBar";
 
-import { OurServicesList } from "./OurServicesList";
+import { OurServicesList } from "./components/OurServicesList";
 
 import { Events } from "../../components/Events/Events";
 
 import "./home.css";
+import { Spinner } from "../../../shared/components/Spinner/Spinner";
 
 export function Home(props) {
   const [eventsList, setEventsList] = useState([]);
@@ -133,9 +134,9 @@ export function Home(props) {
               />
             )}
             {isLoading && (
-              <Box sx={{ display: "flex", justifyContent: "center" }}>
-                <CircularProgress color="secondary" />
-              </Box>
+              <div className="flex justify-center text-center">
+                <Spinner/>
+              </div>
             )}
           </div>
         </div>

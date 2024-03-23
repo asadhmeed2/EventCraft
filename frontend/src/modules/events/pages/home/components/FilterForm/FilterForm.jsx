@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-import useExtractLocations from "./hooks/useExtractLocations";
-import useExtractCategories from "./hooks/useExtractCategories";
-import { Select } from "../../../shared/forms/Select/Select";
-import { DateInput } from "../../../shared/forms/DateInput/DateInput";
+import useExtractLocations from "../../hooks/useExtractLocations";
+import useExtractCategories from "../../hooks/useExtractCategories";
+import { Select } from "../../../../../shared/forms/Select/Select";
+import { DateInput } from "../../../../../shared/forms/DateInput/DateInput";
 
 
 

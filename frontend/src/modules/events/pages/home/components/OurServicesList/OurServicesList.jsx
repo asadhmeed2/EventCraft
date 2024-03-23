@@ -1,7 +1,7 @@
 import { Grid, Typography } from '@mui/material'
 
 import React from 'react'
-import { OurService } from './OurService'
+import { OurService } from '../OurService/OurService'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
