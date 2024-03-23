@@ -1,37 +1,15 @@
-import React, { useState, useEffect } from "react";
-import {
-  TextField,
-  
-  MenuItem,
-  Grid,
-  Box,
-  FormControl,
-} from "@mui/material";
-import { styled } from '@mui/system';
+import React, { useState } from "react";
 
 import useExtractLocations from "./hooks/useExtractLocations";
 import useExtractCategories from "./hooks/useExtractCategories";
 import { Select } from "../../../shared/forms/Select/Select";
 import { DateInput } from "../../../shared/forms/DateInput/DateInput";
 
-const StyledTextField = styled(TextField)({
-  '& .MuiInputLabel-root': {
-    color: 'black', // Label color
-    
-  },
-  '& .MuiSelect-select.MuiSelect-select': {
-    color: 'black', // Select input color
-    backgroundColor:"#ffffffa1;"
-  },
- '&& .MuiInputBase-input[type="date"]': {
-    color: 'black',
-    backgroundColor:"#ffffffa1;"
-  }
-});
+
 
 
 const FilterForm = ({ eventsList, onFilter }) => {
-  const [isOpen, setIsOpen] = useState(false);
+
   const [location, setLocation] = useState("");
   const [category, setCategory] = useState("");
   const [date, setDate] = useState("");
@@ -59,13 +37,12 @@ const FilterForm = ({ eventsList, onFilter }) => {
 
   return (
     <div className="flex ">
-      
+
       {
         <div>
           <form>
             <div className="p-2 flex">
               <div className="w-[150px]" >
-                {/* <InputLabel id="demo-simple-select-label">Location</InputLabel> */}
                 <Select
                   labelId="demo-simple-select-label"
                   value={location}
@@ -81,9 +58,8 @@ const FilterForm = ({ eventsList, onFilter }) => {
                 </Select>
               </div>
               <div className="ml-2 mr-2 w-[150px]" sx={{ ml: 2, mr: 2, width: 150 }}>
-                {/* <InputLabel id="categoryLabel">Category</InputLabel> */}
                 <Select
-                  
+
                   labelId="categoryLabel"
                   value={category}
                   onChange={handleCategoryChange}
@@ -97,21 +73,12 @@ const FilterForm = ({ eventsList, onFilter }) => {
                   ))}
                 </Select>
               </div>
-              {/* <StyledTextField
-                id="date"
-                label="Date"
-                type="date"
-                value={date}
-                onChange={handleDateChange}
-                InputLabelProps={{
-                  shrink: true,
-                }}
-              /> */}
+
               <DateInput id="date"
                 label="Date"
                 type="date"
                 value={date}
-                onChange={handleDateChange}/>
+                onChange={handleDateChange} />
             </div>
           </form>
         </div>
