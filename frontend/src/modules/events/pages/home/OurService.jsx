@@ -25,7 +25,7 @@ export function OurService({ title, description }) {
 
     return (<>
 
-        <div className='flex self-center'>
+        <div className='flex self-center grow'>
             <HandelIcon />
         </div>
         <h6 className='align-left'>{title}</h6>
