@@ -1,25 +1,14 @@
 import * as React from "react";
-import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { useNavigate } from "react-router-dom";
 import { useEventCardHelpers } from "../../card/hooks/useEventCardHelpers";
 import { useDeleteEventMutation } from "../../api/events.api";
-import Snackbar from "@mui/material/Snackbar";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import MuiAlert from "@mui/material/Alert";
 import IconButton from "@mui/material/IconButton";
 import CustomSnackbar from "../../../shared/components/CustomSnackbar/CustomSnackbar";
-import { styled } from "@mui/system";
-const VerticalButton = styled(Button)`
-  && {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #222;
-    font-size: x-large;
-  }
-`;
+
+
 export function ActionsList({ event, handelSetEventLists }) {
   const options = ["Attendees", "Edit Event", "Edit Card", "Delete"];
   const EventActions = {

@@ -1,12 +1,6 @@
 import React, { useState } from "react";
 import {
-  Card,
-  CardActionArea,
-  CardMedia,
-  CardActions,
-  CardContent,
-  Typography,
-  Button,
+
   Box,
 } from "@mui/material";
 
@@ -19,6 +13,8 @@ import { LoadingButton } from "@mui/lab";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import CustomSnackbar from "../../../shared/components/CustomSnackbar/CustomSnackbar";
 import QRCode from "qrcode.react";
+
+import {Button} from '../../../shared/forms/Button'
 
 export const EventCard = ({
   event,
@@ -126,46 +122,41 @@ export const EventCard = ({
           />
         </div>
           <div className="h-[100%]" >
-            <Typography gutterBottom variant="h6" component="div">
+            <h6 className="text-secondary">
               {event.title.charAt(0).toUpperCase() + event.title.substring(1)}
-            </Typography>
-            <Typography variant="body2" color="text.secondary" className=" flex-1">
+            </h6>
+            <h6 className=" flex-1 mb-2">
               {event.description}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
+            </h6>
+            <div >
               {event?.location?.split(":")[0]}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
+            </div>
+            <div >
               {event.date}
-            </Typography>
+            </div>
           </div>
 
         <div
           className="cardActions flex items-center justify-around p-[8px] shadow-2xl border border-slate-50">
           {inHomePage && !userJoined && (
-            <LoadingButton
+            <Button
               loading={pendingJoinEvent}
-              disableSpacing
-              size="small"
               color="secondary"
               onClick={onUserJoinEvent}
-              sx={{ fontSize: "1.3rem" }}
             >
               join
-            </LoadingButton>
+            </Button>
           )}
           {rdxUser.loggedIn && (
             <>
               {inHomePage && userJoined && (
-                <LoadingButton
+                <Button
                   loading={pendingCancelJoinedEvent}
-                  disableSpacing
-                  size="small"
-                  color="secondary.main"
+                  color="secondary"
                   onClick={onCancelUserJoinEvent}
                 >
                   cancel
-                </LoadingButton>
+                </Button>
               )}
 
               {!inHomePage && (
@@ -197,7 +188,7 @@ export const EventCard = ({
                       style={{ cursor: "pointer" }}
                     />
                   </Box>
-                  <Button disableSpacing size="small" color="secondary">
+                  <Button  color="secondary">
                     <ActionsList
                       event={event}
                       handelSetEventLists={handelSetEventLists}
