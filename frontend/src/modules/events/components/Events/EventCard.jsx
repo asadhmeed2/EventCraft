@@ -115,35 +115,21 @@ export const EventCard = ({
 
   return (
     <>
-      <Card
-        sx={{
-          width: "18em;",
-          height: "20em;",
-          boxShadow:
-            "0px 0px 15px -2px rgba(0,0,0,0.2), 0px 1px 4px 0px rgba(0,0,0,0.14), 1px 0px 8px 0px rgba(0,0,0,0.12)",
-          overflow: "hidden",
-          width: "20em;",
-          height: "25em;",
-          display: "flex;",
-          gap: "48px;",
-          flexDirection: "column;",
-          borderRadius: "30px;",
-        }}
+      <div className="w-[20em] h-[25em] shadow overflow-hidden flex flex-col  rounded-[30px]"
       >
-        <CardActionArea padding="8px;" onClick={handelEventClick}>
-          <CardMedia
-            component="img"
-            sx={{ objectFit: "fill" }}
-            objectFit={"cover"}
-            image={event.cardID?.img}
+        <div onClick={handelEventClick}>
+          <img
+            className=" h-[200px] object-cover"
+            src={event.cardID?.img}
             alt="green iguana"
-            height="67%;"
+
           />
-          <CardContent sx={{ height: "100px" }}>
+        </div>
+          <div className="h-[100%]" >
             <Typography gutterBottom variant="h6" component="div">
               {event.title.charAt(0).toUpperCase() + event.title.substring(1)}
             </Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" color="text.secondary" className=" flex-1">
               {event.description}
             </Typography>
             <Typography variant="body2" color="text.secondary">
@@ -152,20 +138,10 @@ export const EventCard = ({
             <Typography variant="body2" color="text.secondary">
               {event.date}
             </Typography>
-          </CardContent>
-        </CardActionArea>
-        <CardActions
-          className="cardActions"
-          sx={{
-            alignItems: "center;",
-            justifyContent: "space-around;",
-            padding: "8px;",
-            gap: "30%;",
-            p: 1,
-            boxShadow:
-              "inset 0px 0px 10px 1px rgb(0 0 0 / 7%), inset 0px 0px 20px 0px rgb(0 0 0 / 0%), inset 1px 0px 20px 12px rgb(0 0 0 / 3%);",
-          }}
-        >
+          </div>
+
+        <div
+          className="cardActions flex items-center justify-around p-[8px] shadow-2xl border border-slate-50">
           {inHomePage && !userJoined && (
             <LoadingButton
               loading={pendingJoinEvent}
@@ -231,8 +207,8 @@ export const EventCard = ({
               )}
             </>
           )}
-        </CardActions>
-      </Card>
+        </div>
+      </div>
 
       {openSnackbar && (
         <CustomSnackbar

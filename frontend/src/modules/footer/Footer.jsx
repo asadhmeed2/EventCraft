@@ -1,15 +1,14 @@
 import React from 'react';
-import { MDBFooter } from 'mdb-react-ui-kit';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import "./footer.css";
 
 const Footer = () => {
   return (
     <div className='footer'>
-    <MDBFooter bgColor='#f8f9fa' className='text-center text-lg-center footer'>
+    <div   className='text-center text-lg-center bg-[#f8f9fa] footer'>
       <div className='text-center p-3 footer-container'>
         <div className="footer-content">
-          <div className="d-flex justify-content-center align-items-center">
+          <div className="flex justify-center items-center mt-[10px]">
             <a href='https://github.com/reemodo/EventCraft' target='_blank' rel='noopener noreferrer' className="footer-icon">
               <FaGithub size={30} color='rgb(170, 194, 43)' />
             </a>
@@ -22,7 +21,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </MDBFooter>
+    </div>
     </div>
   );
 }
