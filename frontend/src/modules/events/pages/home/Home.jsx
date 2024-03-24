@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { Box, CircularProgress } from "@mui/material";
-
 import Layout from "../../../landing/Layout";
 
 import { useGeolocation } from "../../../shared/hooks/useGeolocation/useGeolocation";
