@@ -3,6 +3,8 @@ import { LoadingButton } from "@mui/lab";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { Box, Stack, TextField } from "@mui/material";
+import { Input } from "../../../shared/forms/Input/Input";
+import { InputOutlined } from "../../../shared/forms/InputOutlined";
 
 const initFormValues = {
   email: "",
@@ -47,39 +49,38 @@ export const LoginForm = ({ onClose, isModal, onLogin, loading }) => {
       validationSchema={validationSchema}
       onSubmit={onLogin}
       validateOnChange={false}
-      validateOnBlur={false}
+      
     >
       {(props) => (
         <Form className={classes.loginForm}>
-          <Stack spacing={0} alignItems={"center"}>
-            <Box sx={{ width: '400px' }}>
+          <div className="flex flex-col items-center " >
+            <div className="w-[400px]" >
               {/* email */}
               <Field
                 name="email"
                 type="email"
                 label="Email"
                 variant="outlined"
-                as={TextField}
-                className={classes.inputField}
+                as={InputOutlined}
+                className='w-[100%] h-[40px] mb-[20px]'
                 error={!!props.errors.email}
                 helperText={props.errors.email ?? ""}
-                sx={{ width: '100%', height: '100px' }}
+                
               />
-            </Box>
-            <Box sx={{ width: '400px' }}>
+            </div>
+            <div className="w-[400px]" >
               {/* password */}
               <Field
                 name="password"
                 type="password"
                 label="Password"
-                as={TextField}
-                variant="outlined"
-                className={classes.inputField}
+                as={InputOutlined}
+                className='w-[100%] h-[40px] mb-[20px]'
                 error={!!props.errors.password}
                 helperText={props.errors.password ?? ""}
-                sx={{ width: '100%', height: '50px' }}
-              />
-            </Box>
+                />
+                
+            </div>
 
             {/* submit btn */}
             <Stack direction={"row"} spacing={2}  sx={{marginTop: "20px"}}>
@@ -97,7 +98,7 @@ export const LoginForm = ({ onClose, isModal, onLogin, loading }) => {
 
 
             </Stack>
-          </Stack>
+          </div>
         </Form>
       )}
     </Formik>

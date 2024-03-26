@@ -6,11 +6,8 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import Toolbar from "@mui/material/Toolbar";
-import { AuthModal } from "../auth/components/AuthModal/AuthModal";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import NotificationsIcon from "@mui/icons-material/Notifications";
-import Badge from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
 import MuiDrawer from "@mui/material/Drawer";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -226,7 +223,6 @@ const Navbar = () => {
             </List>
           </Drawer>
         )}
-        <AuthModal isOpen={openAuthModal} onClose={onCloseLogin} />
       </Box>
     </nav>
   );

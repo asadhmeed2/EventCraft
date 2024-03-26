@@ -452,6 +452,7 @@ export const EventForm = ({ isAddFlow, model }) => {
               </CardContent>
             </Card>
           </Stack>
+          
           <CustomSnackbar
             open={snackbarOpen}
             handleClose={() => {

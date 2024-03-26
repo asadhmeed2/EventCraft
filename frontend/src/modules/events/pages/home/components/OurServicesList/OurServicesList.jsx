@@ -1,9 +1,8 @@
-import { Grid, Typography } from '@mui/material'
-
 import React from 'react'
-import { OurService } from '../OurService/OurService'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+
+import { OurService } from '../OurService/OurService'
 
 export function OurServicesList(props) {
   const list = [
@@ -28,7 +27,7 @@ export function OurServicesList(props) {
 
             {list.map((service) => (
               <div className='flex flex-col flex-1 justify-center items-center shadow mr-2 p-[5px] mb-4 hover:bg-[#5c691b33] rounded-sm' key={service.title}
-                onClick={rdxUser.loggedIn ? navigate('/workspace') : () => navigate('/register')} >
+                onClick={rdxUser.loggedIn ? () => navigate('/workspace') : () => navigate('/register')} >
 
                 <OurService title={service.title} description={service.description} />
 

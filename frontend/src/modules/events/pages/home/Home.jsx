@@ -21,7 +21,7 @@ export function Home(props) {
   const [filteredEvents, setFilteredEvents] = useState({});
 
   const { isLoading, error, fetchEvents } = useGetEvents();
-  const navigate = useNavigate();
+ 
   const { currentPosition } = useGeolocation({
     disable: false,
   });

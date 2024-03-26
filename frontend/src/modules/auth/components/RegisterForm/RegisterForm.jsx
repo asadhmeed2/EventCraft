@@ -7,6 +7,7 @@ import { LoadingButton } from "@mui/lab";
 import { Formik, Form, Field } from "formik";
 
 import * as Yup from "yup";
+import { InputOutlined } from "../../../shared/forms/InputOutlined";
 
 const initFormValues = {
   email: "",
@@ -48,7 +49,7 @@ export const RegisterForm = ({ onClose, isModal, onRegister, loading }) => {
     >
       {(props) => (
         <Form>
-          <Stack sx={{ gap: 2 }}>
+          <div className="flex flex-col gap-5">
             <Grid justifyContent={"center"} sx={{ gap: 2 }} container>
               {/* Name */}
               <Field
@@ -56,7 +57,7 @@ export const RegisterForm = ({ onClose, isModal, onRegister, loading }) => {
                 type="text"
                 label="Name"
                 variant="outlined"
-                as={TextField}
+                as={InputOutlined}
                 error={!!props.errors.name}
                 helperText={props.errors.name ?? ""}
               />
@@ -67,7 +68,7 @@ export const RegisterForm = ({ onClose, isModal, onRegister, loading }) => {
                 type="email"
                 label="Email"
                 variant="outlined"
-                as={TextField}
+                as={InputOutlined}
                 error={!!props.errors.email}
                 helperText={props.errors.email ?? ""}
               />
@@ -79,7 +80,7 @@ export const RegisterForm = ({ onClose, isModal, onRegister, loading }) => {
                 name="password"
                 type="password"
                 label="password"
-                as={TextField}
+                as={InputOutlined}
                 variant="outlined"
                 error={!!props.errors.password}
                 helperText={props.errors.password ?? ""}
@@ -91,7 +92,7 @@ export const RegisterForm = ({ onClose, isModal, onRegister, loading }) => {
                 name="confirmPassword"
                 type="password"
                 label="confirm password"
-                as={TextField}
+                as={InputOutlined}
                 variant="outlined"
                 error={!!props.errors.confirmPassword}
                 helperText={props.errors.confirmPassword ?? ""}
@@ -112,7 +113,7 @@ export const RegisterForm = ({ onClose, isModal, onRegister, loading }) => {
                 name="phoneNumber"
                 type="text"
                 label="phone number"
-                as={TextField}
+                as={InputOutlined}
                 variant="outlined"
                 error={!!props.errors.phoneNumber}
                 helperText={props.errors.phoneNumber ?? ""}
@@ -140,7 +141,7 @@ export const RegisterForm = ({ onClose, isModal, onRegister, loading }) => {
                 </LoadingButton>
               )}
             </Stack>
-          </Stack>
+          </div>
         </Form>
       )}
     </Formik>
