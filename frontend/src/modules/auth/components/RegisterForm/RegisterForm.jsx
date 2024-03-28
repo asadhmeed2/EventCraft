@@ -1,13 +1,10 @@
 import React from "react";
 
-import { Grid, Stack, TextField } from "@mui/material";
-
-import { LoadingButton } from "@mui/lab";
-
 import { Formik, Form, Field } from "formik";
 
 import * as Yup from "yup";
 import { InputOutlined } from "../../../shared/forms/InputOutlined";
+import { Button } from "../../../shared/forms/Button/Button";
 
 const initFormValues = {
   email: "",
@@ -50,7 +47,7 @@ export const RegisterForm = ({ onClose, isModal, onRegister, loading }) => {
       {(props) => (
         <Form>
           <div className="flex flex-col gap-5">
-            <Grid justifyContent={"center"} sx={{ gap: 2 }} container>
+            <div className="flex justify-center gap-2" >
               {/* Name */}
               <Field
                 name="name"
@@ -72,9 +69,9 @@ export const RegisterForm = ({ onClose, isModal, onRegister, loading }) => {
                 error={!!props.errors.email}
                 helperText={props.errors.email ?? ""}
               />
-            </Grid>
+            </div>
 
-            <Grid justifyContent={"center"} sx={{ gap: 2 }} container>
+            <div div className="flex justify-center gap-2">
               {/* password */}
               <Field
                 name="password"
@@ -97,17 +94,11 @@ export const RegisterForm = ({ onClose, isModal, onRegister, loading }) => {
                 error={!!props.errors.confirmPassword}
                 helperText={props.errors.confirmPassword ?? ""}
               />
-            </Grid>
+            </div>
 
             {/* password */}
-            <Grid
-              sx={{
-                justifyContent: {
-                  xs: "center",
-                  sm: "start",
-                },
-              }}
-              container
+            <div
+              className="flex gap-2 justify-start"
             >
               <Field
                 name="phoneNumber"
@@ -118,29 +109,29 @@ export const RegisterForm = ({ onClose, isModal, onRegister, loading }) => {
                 error={!!props.errors.phoneNumber}
                 helperText={props.errors.phoneNumber ?? ""}
               />
-            </Grid>
+            </div>
 
             {/* submit btn */}
-            <Stack justifyContent={"center"} direction={"row"} spacing={2}>
-              <LoadingButton
+            <div className="flex justify-center gap-2">
+              <Button
                 type="submit"
                 variant="contained"
                 loading={loading}
                 color="secondary"
               >
                 Sign up
-              </LoadingButton>
+              </Button>
 
               {isModal && (
-                <LoadingButton
+                <Button
                   color="secondary"
                   variant="outlined"
                   onClick={onClose}
                 >
                   cancel
-                </LoadingButton>
+                </Button>
               )}
-            </Stack>
+            </div>
           </div>
         </Form>
       )}
