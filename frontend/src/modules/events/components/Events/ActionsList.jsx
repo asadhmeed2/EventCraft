@@ -1,12 +1,11 @@
 import * as React from "react";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
 import { useNavigate } from "react-router-dom";
 import { useEventCardHelpers } from "../../card/hooks/useEventCardHelpers";
 import { useDeleteEventMutation } from "../../api/events.api";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import IconButton from "@mui/material/IconButton";
 import CustomSnackbar from "../../../shared/components/CustomSnackbar/CustomSnackbar";
+
+import { Menu, Transition } from '@headlessui/react'
 
 
 export function ActionsList({ event, handelSetEventLists }) {
@@ -51,34 +50,38 @@ export function ActionsList({ event, handelSetEventLists }) {
 
   return (
     <>
-      <IconButton
-        id="basic-button"
-        aria-controls={anchorEl ? "basic-menu" : undefined}
-        aria-haspopup="true"
-        aria-expanded={Boolean(anchorEl)}
-        onClick={handleClick}
-      >
-        <MoreVertIcon />
-      </IconButton>
-      <Menu
-        id="basic-menu"
-        anchorEl={anchorEl}
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-        MenuListProps={{
-          "aria-labelledby": "basic-button",
-        }}
-      >
-        {options.map((option) => (
-          <MenuItem
-            key={option}
-            selected={option === selectedOption}
-            onClick={() => handelEventClick(option.replace(" ", ""))}
-          >
-            {option}
-          </MenuItem>
-        ))}
+      <Menu as="div" className="relative inline-block text-left ">
+        <Menu.Button className="inline-flex w-full justify-center rounded-md bg-black/20 px-4 py-2 text-sm font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75">
+          <MoreVertIcon />
+        </Menu.Button>
+
+        <Transition
+          as={React.Fragment}
+          enter="transition ease-out duration-100"
+          enterFrom="transform opacity-0 scale-95"
+          enterTo="transform opacity-100 scale-100"
+          leave="transition ease-in duration-75"
+          leaveFrom="transform opacity-100 scale-100"
+          leaveTo="transform opacity-0 scale-95"
+        >
+          <Menu.Items className="absolute overflow-x-auto right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
+
+            {options.map((option) => (
+              <Menu.Item
+                key={option}
+                selected={option === selectedOption}
+                onClick={() => handelEventClick(option.replace(" ", ""))}
+              >
+                {({ active }) => (
+
+                  <div className="group flex w-full items-center rounded-md px-2 py-2 text-sm">{option}</div>
+                )}
+              </Menu.Item>
+            ))}
+          </Menu.Items>
+        </Transition>
       </Menu>
+
 
       <CustomSnackbar
         open={snackbarOpen}

@@ -20,6 +20,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEventCardHelpers } from "../../hooks/useEventCardHelpers";
 import { useItemHelpers } from "../../hooks/useItemHelpers";
 import Button from '@mui/material/Button';
+import { ButtonOutlined } from "../../../../shared/forms/ButtonOutlined";
 
 
 export const ItemTypes = {
@@ -317,19 +318,14 @@ export const CardEdit = () => {
               </Box>
             </Box>
           </Box>
-          <Button 
+          <ButtonOutlined
           onClick={() => navigate(-1)} 
           variant="contained" 
-          color="secondary"
-          sx={{
-            position: "absolute",
-            bottom: 10,
-            right: -10,
-            zIndex: 1000,
-          }} 
+          color="secondary" 
+          className="position-absolute bottom-[10px] right-[-10px] zIndex-[1000]"
           >
             Cancel
-          </Button>
+          </ButtonOutlined>
         </Stack>
       </Stack>
       </Box>

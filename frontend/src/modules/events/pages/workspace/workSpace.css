@@ -9,6 +9,7 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    align-items: center;
     right: 3%; 
     top: 20%;
     transition: right 0.3s ease; 

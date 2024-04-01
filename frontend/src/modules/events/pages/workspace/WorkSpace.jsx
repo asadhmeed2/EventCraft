@@ -4,7 +4,7 @@ import "./workSpace.css";
 
 import {
   Box,
-  Button,
+
   CircularProgress,
   Stack,
   Typography,
@@ -12,8 +12,10 @@ import {
 
 import { useGetMyEvents } from "../../hooks/useGetMyEvents";
 import { useNavigate } from "react-router-dom";
-import SearchBar from "../../../shared/forms/SearchBar";
+import SearchBar from "../../../shared/forms/SearchBar/SearchBar";
 import CustomSnackbar from "../../../shared/components/CustomSnackbar/CustomSnackbar";
+import { ButtonOutlined } from "../../../shared/forms/ButtonOutlined";
+import { Button } from "../../../shared/forms/Button";
 
 export const WorkSpace = (props) => {
   const navigate = useNavigate();
@@ -68,95 +70,39 @@ export const WorkSpace = (props) => {
 
   return (
     <>
-      <Stack m={5}>
-        <Typography
-          fontSize={"4vw;"}
-          fontFamily={"Lora"}
-          fontWeight={900}
-          component="h1"
-          mb={3}
-          m="10%"
-          variant="h6"
-          alignSelf={"center"}    
+      <div className="flex flex-col m-5" >
+        <h1 className="text-[4vw] font-[Lora] font-black mb-3 m-[10%] text-center"    
         >
           Which event you will manage today
-        </Typography>
+        </h1>
         {eventsList.length === 0 ? (
           <>
-            <Box
-              sx={{
-                height: " 50%;",
-                display: "flex;",
-                flexDirection: "row;",
-                justifyContent: "space-evenly;",
-                margin: " 5%;",
-                padding: "4%;",
-                alignContent: "center",
-              }}
+            <div
+            className="h-[50%] flex justify-evenly m-[5%] p-[4%] content-center"
             >
-              <Typography
-                sx={{
-                  fontSize: " 2vw;",
-                  fontFamily: "Quintessential;",
-                  height: "50vh;",
-                }}
+              <div
+              className="text-[2vw] font-[Quintessential] h-[50vh]"
+
               >
                 Let's Begin: Create Your First Event Today
-              </Typography>
+              </div>
               <Button
                 onClick={onOpenCreateModel}
-                sx={{
-                  height: " 50%;",
-                  color: "secondary.contrastText",
-                  backgroundColor: "secondary",
-                  "--Grid-borderWidth": "1px",
-                  borderRadius: "40px",
-                  borderTop: "var(--Grid-borderWidth) solid",
-                  borderLeft: "var(--Grid-borderWidth) solid",
-                  borderRight: "var(--Grid-borderWidth) solid",
-                  borderBottom: "var(--Grid-borderWidth) solid",
-                  borderColor: "secondary",
-                  minWidth: "fit-content",
-                  minHeight: "fit-content",
-                  fontSize: "1.2vw;",
-                  fontFamily: "Quintessential;",
-                  height: "fit-content;",
-                  "&:hover": {
-                    backgroundColor: "secondary.dark", // Change background color on hover
-                  },
-                }}
-                variant="contained"
+                
                 className="addButton"
               >
                 Add Event
               </Button>
-            </Box>
+            </div>
           </>
         ) : (
-          <div className="iconContainer">
+
+     
+          <div className="flex items-center justify-center pl-[10%] pr-[10%] m-[5%] gap-[10px] h-[50%]">
             <SearchBar handelSearch={handelSearch} />
             <Button
               onClick={onOpenCreateModel}
-              sx={{
-                color: "secondary.contrastText",
-                backgroundColor: "secondary",
-                "--Grid-borderWidth": "1px",
-                borderRadius: "40px",
-                borderTop: "var(--Grid-borderWidth) solid",
-                borderLeft: "var(--Grid-borderWidth) solid",
-                borderRight: "var(--Grid-borderWidth) solid",
-                borderBottom: "var(--Grid-borderWidth) solid",
-                borderColor: "secondary",
-                minWidth: "fit-content",
-                minHeight: "fit-content",
-                fontSize: "1.7vw;",
-                fontFamily: "Quintessential;",
-                height: "fit-content;",
-                "&:hover": {
-                  backgroundColor: "secondary.dark", // Change background color on hover
-                },
-              }}
-              variant="contained"
+              
               className="addButton"
             >
               Add Event
@@ -170,14 +116,14 @@ export const WorkSpace = (props) => {
             handelSetEventLists={onDeleteEvent}
           />
         )}
-        {isLoading && (
-          <Box sx={{ display: "flex", justifyContent: "center" }}>
+        {!!isLoading && (
+          <div className="flex justify-center" >
             <CircularProgress color="secondary" />
-          </Box>
+          </div>
         )}
-      </Stack>
+      </div>
 
-      {snackbarOpen && (
+      {!!snackbarOpen && (
         <CustomSnackbar
           open={snackbarOpen}
           handleClose={() => setSnackbarOpen(false)}

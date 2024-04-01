@@ -8,13 +8,13 @@ import { ActionsList } from "./ActionsList";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useEventHelpers } from "../../hooks/useEventHelper";
-import { LoadingButton } from "@mui/lab";
 
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import CustomSnackbar from "../../../shared/components/CustomSnackbar/CustomSnackbar";
 import QRCode from "qrcode.react";
 
 import {Button} from '../../../shared/forms/Button'
+import { ButtonOutlined } from "../../../shared/forms/ButtonOutlined";
 
 export const EventCard = ({
   event,
@@ -139,13 +139,13 @@ export const EventCard = ({
         <div
           className="cardActions flex items-center justify-around p-[8px] shadow-2xl border border-slate-50">
           {inHomePage && !userJoined && (
-            <Button
+            <ButtonOutlined
               loading={pendingJoinEvent}
               color="secondary"
               onClick={onUserJoinEvent}
             >
               join
-            </Button>
+            </ButtonOutlined>
           )}
           {rdxUser.loggedIn && (
             <>
@@ -161,15 +161,8 @@ export const EventCard = ({
 
               {!inHomePage && (
                 <>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "left",
-                      gap: "30%;",
-                      marginLeft: "5%;",
-                      alignItems: "center;",
-                      fontSize: "45px;",
-                    }}
+                  <div
+                    className="flex justify-left gap-[30%] ml-[5%] items-center text-[45px]"
                   >
                     <WhatsAppIcon
                       color="secondary"
@@ -187,13 +180,13 @@ export const EventCard = ({
                       onClick={downloadQR}
                       style={{ cursor: "pointer" }}
                     />
-                  </Box>
-                  <Button  color="secondary">
+                  </div>
+                  
                     <ActionsList
                       event={event}
                       handelSetEventLists={handelSetEventLists}
                     />
-                  </Button>
+                
                 </>
               )}
             </>
