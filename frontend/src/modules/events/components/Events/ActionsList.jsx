@@ -51,7 +51,7 @@ export function ActionsList({ event, handelSetEventLists }) {
   return (
     <>
       <Menu as="div" className="relative inline-block text-left ">
-        <Menu.Button className="inline-flex w-full justify-center rounded-md bg-black/20 px-4 py-2 text-sm font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75">
+        <Menu.Button className="flex w-content justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium  focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75">
           <MoreVertIcon />
         </Menu.Button>
 
