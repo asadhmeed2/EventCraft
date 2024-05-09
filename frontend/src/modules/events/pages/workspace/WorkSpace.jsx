@@ -3,18 +3,14 @@ import { Events } from "../../components/Events/Events";
 import "./workSpace.css";
 
 import {
-  Box,
-
   CircularProgress,
-  Stack,
-  Typography,
 } from "@mui/material";
 
 import { useGetMyEvents } from "../../hooks/useGetMyEvents";
 import { useNavigate } from "react-router-dom";
 import SearchBar from "../../../shared/forms/SearchBar/SearchBar";
 import CustomSnackbar from "../../../shared/components/CustomSnackbar/CustomSnackbar";
-import { ButtonOutlined } from "../../../shared/forms/ButtonOutlined";
+
 import { Button } from "../../../shared/forms/Button";
 
 export const WorkSpace = (props) => {
