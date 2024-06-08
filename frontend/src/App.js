@@ -14,10 +14,11 @@ import { Stack, createTheme } from "@mui/material";
 
 import withAuth from "./modules/auth/hooks/useAuth/withAuth";
 
+import EventPage from "./modules/events/pages/EventPage";
 import Navbar from "./modules/NavBar/Navbar";
+
 import { Home } from "./modules/events/pages/home/Home";
 import { WorkSpace } from "./modules/events/pages/workspace/WorkSpace";
-import EventPage from "./modules/events/pages/EventPage";
 import { CardEdit } from "./modules/events/card/components/CardEdit/CardEdit";
 
 import "./App.css";
